@@ -1,0 +1,11 @@
+<h1>Result</h1>
+<% if !@is_valid_build %>
+  <p>Sorry but <strong><%= @guess.join('') %></strong> can't be built out of <%= @letters.join(', ') %></p>
+<% elsif !@is_valid_english %>
+  <p>Sorry but <strong><%= @guess.join('') %></strong> does not seem to be a valid English word...</p>
+<% else %>
+  <p><strong>Congratulations!</strong> <%= @guess.join('') %> is a valid English word!</p>
+  <p>You score for this game is <strong><%= @score %> points!</strong></p>
+  <p>You total score for this session is <strong><%= session[:score] %> points!</strong></p>
+<% end %>
+<%= link_to "Play again", "new" %>
